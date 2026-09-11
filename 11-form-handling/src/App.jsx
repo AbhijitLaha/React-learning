@@ -2,20 +2,23 @@ import React from 'react'
 
 const App = () => {
 
-const submitHander =() =>{
-  console.log("Form Submitted");
-  
-}
+  const submitHandler = (e)=>{
+    e.preventDefault()
+    console.log("Form Submitted");
+    
+  }
 
   return (
     <div>
-      <form onSubmit={() =>{
-        submitHndler()
+      <form onSubmit={(e) => {
+        submitHandler(e)
       }}>
-      <input type = "text" placeholder="Enter your name"> </input>
-      <button>submite</button>
+        <input type="text" placeholder='Enter your Name' />
+        <button>Submit</button>
+      </form>
+     
     </div>
   )
 }
 
-export defailt App
+export default App
