@@ -4,9 +4,19 @@ const App = () => {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
 
+  const [task, setTask] = useState([])
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(title, details);
+
+    const copyTask = [...task]
+
+    copyTask.push({title, details})
+
+    setTask(copyTask)
+    console.log(copyTask);
+    
+    
 
     setTitle("");
     setDetails('');
@@ -32,18 +42,19 @@ const App = () => {
             setTitle(e.target.value);
           }}
         />
+        
         {/*Detailed input*/}
         <textarea
           type="text"
           className="px-5 py-2 h-40 font-medium flex items-start flex-row w-full border-2 rounded"
-          placeholder="Write details"
+          placeholder="Write details here"
           value={details}
           onChange={(e)=>{
             setDetails(e.target.value)
           }}
         />
 
-        <button className="px-5 py-2 w-full font-medium bg-white text-black  rounded">
+        <button className="px-5 py-2 active:scale-94 w-full font-medium bg-white text-black  rounded">
           Add Note
         </button>
       </form>
